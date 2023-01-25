@@ -1,0 +1,61 @@
+{% extends 'base-admin.html' %}
+
+{% block title %}
+Admin Temuan.id
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Foto</th>
+                    <th>Keterangan</th>
+                    <th>Lokasi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items|reverse %}
+                <tr>
+                    <th>{{loop.index}}</th>
+                    <td>
+                        <img src="/static/img/{{item.3}}" alt="" class="img-thumbnail-admin">
+                    </td>
+                    <td>
+                        <h5 class="mb-0">
+                            {{item.1}}
+                        </h5>
+                        <span>
+                            {{item.2|truncate(115)}}
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            {{item.4}}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <a href="/update/{{item.0}}">
+                                <button class="btn btn-success">
+                                    Ubah
+                                </button>
+                            </a>
+                            <a href="/delete/{{item.0}}"
+                                onclick="return confirm('Sudah yakin dengan data yang dimasukkan?');">
+                                <button class="btn btn-danger">
+                                    Hapus
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

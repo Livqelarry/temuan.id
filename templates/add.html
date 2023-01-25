@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Temuan
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">Upload Informasi Temuan atau Kehilangan</h1>
+            <form action="/add_process" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Judul</label>
+                    <input type="text" class="form-control" id="title" name="title"
+                        placeholder="'Kehilangan sepatu futsal' atau 'Menemukan ktp atas nama Naruto'">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Deskripsi</label>
+                    <textarea class="form-control" id="description" rows="3" name="description"
+                        placeholder="Info detail tentang barang kehilangan"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Lokasi</label>
+                    <input type="text" class="form-control" id="location" name="location"
+                        placeholder="Contoh: Depan gerbang selatan amikom yogyakarta">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Nomor Whatsapp</label>
+                    <input type="number" class="form-control" id="phone" name="phone" placeholder="08xxxxxx">
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Tanggal Kejadian</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="mb-3">
+                    <label for="jenis" class="form-label">Jenis</label>
+                    <select class="form-select" aria-label="Jenis" name="type" required>
+                        <option selected>Pilih Jenis</option>
+                        <option value="kehilangan">Kehilangan</option>
+                        <option value="temuan">Temuan</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="img" class="form-label">Gambar</label>
+                    <input type="file" name="file" id="img" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

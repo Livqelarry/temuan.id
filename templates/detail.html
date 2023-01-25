@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Temuan.id
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="/static/img/{{item.3}}" alt="gambar item temuan" class="w-100 mb-4 img-detail">
+            <a href="https://wa.me/{{item.5}}" class="btn btn-primary">Hubungi Terkait</a>
+        </div>
+        <div class="col-md-7">
+            <h1>{{item.1}}</h1>
+            <p>
+                lokasi: {{item.4}} <br>
+                Tipe: {{item.6}} <br>
+                Tanggal Kejadian: {{item.7}} <br>
+                Tanggal Upload: {{item.8}}
+            </p>
+            <p>
+                {{item.2}}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
